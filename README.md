@@ -32,7 +32,7 @@ $ docker-compose build
 ```
 Para rodar o projeto em ambiente docker:
 ```
-$ docker compose up
+$ docker-compose up
 ```
 Para acessar a URL do Swagger:
 ```
