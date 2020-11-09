@@ -21,7 +21,7 @@ Para clonar o projeto:
 ```
 $ git clone https://github.com/FaveroFerreira/finances-api.git
 ```
-Para acessar o diretóro do projeto:
+Para acessar o diretório do projeto:
 ```
 $ cd finances-api
 ```
