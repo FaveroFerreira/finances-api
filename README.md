@@ -8,9 +8,10 @@ For fun
 2. Maven
 3. Java 8
 4. Spring-Boot 2.3.5.RELEASE
-5. JUnit
-6. Docker
-7. Docker-Compose
+5. Flyway
+6. JUnit
+7. Docker
+8. Docker-Compose
 
 ## Configuração do projeto para execução local
 
