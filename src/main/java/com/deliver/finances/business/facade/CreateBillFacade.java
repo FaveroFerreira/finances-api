@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 
 import com.deliver.finances.business.service.BillService;
 import com.deliver.finances.business.service.InterestConfigurationService;
+import com.deliver.finances.config.flags.FeatureFlags;
 import com.deliver.finances.model.entity.Bill;
 import com.deliver.finances.model.entity.InterestConfiguration;
 import com.deliver.finances.model.vo.CreateBillVO;
@@ -60,6 +61,10 @@ public class CreateBillFacade {
     }
 
     private BigDecimal calculateTotalInterest(Integer numberOfDelayedDays, BigDecimal originalAmount, BigDecimal interest) {
+        if (FeatureFlags.CALCULATE_COMPOSED_INTEREST.isActive()) {
+            return interest.add(BigDecimal.ONE).pow(numberOfDelayedDays);
+        }
+
         return originalAmount.multiply(interest)
                 .multiply(BigDecimal.valueOf(numberOfDelayedDays))
                 .setScale(2, RoundingMode.HALF_UP);

@@ -1,6 +1,7 @@
 package com.deliver.finances.controller;
 
 import com.deliver.finances.business.facade.CreateBillFacade;
+import com.deliver.finances.config.flags.FeatureFlags;
 import com.deliver.finances.model.entity.Bill;
 import com.deliver.finances.model.vo.CreateBillVO;
 import com.deliver.finances.model.vo.DisplayBillVO;
@@ -36,6 +37,11 @@ public class BillController {
     public ResponseEntity<List<DisplayBillVO>> listCreatedBills() {
         List<DisplayBillVO> displayBillVOS = createBillFacade.listCreatedBills();
         return ResponseEntity.ok(displayBillVOS);
+    }
+
+    @GetMapping("/configs")
+    public boolean configs() {
+        return FeatureFlags.CALCULATE_COMPOSED_INTEREST.isActive();
     }
 
 }
