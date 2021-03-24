@@ -26,10 +26,6 @@ Para acessar o diretório do projeto:
 ```
 $ cd finances-api
 ```
-Para preparar o ambiente docker:
-```
-$ docker-compose build
-```
 Para rodar o projeto em ambiente docker:
 ```
 $ docker-compose up
